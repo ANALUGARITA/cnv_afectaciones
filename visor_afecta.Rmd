@@ -1,8 +1,14 @@
 ---
-title: "Visor de afectaciones"
+title: "Visor de afectaciones de la RVN"
 author: "ALGF"
 date: "5/15/2023"
-output: html_document
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    social: menu
+    source_code: embed
+    navbar:
+      - { title: "Acerca de", href: "https://google.com", align: right, icon: glyphicon-time}
 ---
 
 ```{r setup, include=FALSE}
@@ -12,25 +18,26 @@ knitr::opts_chunk$set(echo = TRUE)
 #  Carga de paquetes y de datos
 
 ```{r paquetes}
-library(dplyr)
 library(sf)
-library(terra)
 library(DT)
+library(shiny)
+library(rgdal)
+library(dplyr)
+library(terra)
+library(plotly)
+library(leafem)
+library(leaflet)
 library(ggplot2)
 library(leaflet.extras)
-library(leafem)
-library(shiny)
+library(flexdashboard)
 library(shinydashboard)
-library(plotly)
-library(leaflet)
-library(rgdal)
 
 ```
 ```{r datos}
 # Capa de polígonos: afectaciones en proyectos
 afectaciones <-
   st_read(
-    "https://raw.githubusercontent.com/ANALUGARITA/cnv_afectaciones/main/CNV_afectaciones_WGS84.geojson",
+    "https://raw.githubusercontent.com/ANALUGARITA/cnv_afectaciones/master/datos/CNV_afectaciones_WGS84.geojson",
     quiet = TRUE
   )
 
@@ -38,7 +45,7 @@ afectaciones <-
 # Capa de puntos: invetario de proyectos
 proyectos <-
   st_read(
-    "https://raw.githubusercontent.com/ANALUGARITA/cnv_afectaciones/main/CNV_Proyectos_con_afectaciones_WGS84.geojson",
+    "https://raw.githubusercontent.com/ANALUGARITA/cnv_afectaciones/master/datos/CNV_Proyectos_con_afectaciones_WGS84.geojson",
     quiet = TRUE
   )
 
@@ -50,9 +57,47 @@ Afectaciones
 ### Afectaciones tramitadas en la Red Vial Nacional
 
 
+Busqueda {.sidebar}
+-------------------------------------
+
+### Busqueda de Afectacion
+
 ```{r}
 
 ```
+
+
+Mapa1 {.tabset}
+-------------------------------------
+
+### Mapa de Proyectos
+    
+```{r}
+
+```
+
+Mapa2 {.tabset}
+-------------------------------------
+
+### Ubicacion Geografica
+    
+```{r}
+
+```
+
+
+Grafico {.tabset}
+-------------------------------------
+
+### Grafico de estado de afectaciones
+    
+```{r}
+
+```
+
+
+
+
 
 
 Proyectos
@@ -61,10 +106,34 @@ Proyectos
 ### Inventario de proyectos con afectaciones en la Red Vial Nacional (2016-2022)
 
 
+Filtro {.sidebar}
+-------------------------------------
+
+### Filtro de Proyectos
+
 ```{r}
 
 ```
 
+
+Mapa3 {.tabset}
+-------------------------------------
+
+### Mapa de Proyectos
+    
+```{r}
+
+```
+
+
+Tabla {.tabset}
+-------------------------------------
+
+### Tabla
+    
+```{r}
+
+```
 
 
 
