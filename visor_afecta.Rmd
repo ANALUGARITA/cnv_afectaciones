@@ -1,0 +1,45 @@
+---
+title: "Vidor de afectaciones"
+author: "ALGF"
+date: "5/15/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#  Carga de paquetes y de datos
+
+```{r paquetes}
+library(dplyr)
+library(sf)
+library(terra)
+library(DT)
+library(ggplot2)
+library(leaflet.extras)
+library(leafem)
+library(shiny)
+library(shinydashboard)
+library(plotly)
+library(leaflet)
+library(rgdal)
+
+```
+```{r datos}
+# Capa de polígonos: afectaciones en proyectos
+afectaciones <-
+  st_read(
+    "https://raw.githubusercontent.com/ANALUGARITA/cnv_afectaciones.git/main/CNV_afectaciones_WGS84.geojson",
+    quiet = TRUE
+  )
+
+
+# Capa de puntos: invetario de proyectos
+danos <-
+  st_read(
+    "https://raw.githubusercontent.com/ANALUGARITA/cnv_afectaciones.git/main/CNV_Proyectos_con_afectaciones_WGS84.geojson",
+    quiet = TRUE
+  )
+
+```
