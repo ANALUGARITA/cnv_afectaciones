@@ -1,5 +1,5 @@
 ---
-title: "Vidor de afectaciones"
+title: "Visor de afectaciones"
 author: "ALGF"
 date: "5/15/2023"
 output: html_document
@@ -30,16 +30,41 @@ library(rgdal)
 # Capa de polígonos: afectaciones en proyectos
 afectaciones <-
   st_read(
-    "https://raw.githubusercontent.com/ANALUGARITA/cnv_afectaciones.git/main/CNV_afectaciones_WGS84.geojson",
+    "https://raw.githubusercontent.com/ANALUGARITA/cnv_afectaciones/main/CNV_afectaciones_WGS84.geojson",
     quiet = TRUE
   )
 
 
 # Capa de puntos: invetario de proyectos
-danos <-
+proyectos <-
   st_read(
-    "https://raw.githubusercontent.com/ANALUGARITA/cnv_afectaciones.git/main/CNV_Proyectos_con_afectaciones_WGS84.geojson",
+    "https://raw.githubusercontent.com/ANALUGARITA/cnv_afectaciones/main/CNV_Proyectos_con_afectaciones_WGS84.geojson",
     quiet = TRUE
   )
 
 ```
+
+Afectaciones
+=======================================================================
+
+### Afectaciones tramitadas en la Red Vial Nacional
+
+
+```{r}
+
+```
+
+
+Proyectos
+=======================================================================
+
+### Inventario de proyectos con afectaciones en la Red Vial Nacional (2016-2022)
+
+
+```{r}
+
+```
+
+
+
+
