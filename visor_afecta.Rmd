@@ -1,7 +1,7 @@
 ---
 title: "Visor de afectaciones de la RVN"
-author: "ALGF"
-date: "5/15/2023"
+# author: "ALGF"
+# date: "5/15/2023"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
@@ -13,11 +13,8 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-```
 
 #  Carga de paquetes y de datos
-
-```{r paquetes}
 library(sf)
 library(DT)
 library(shiny)
@@ -31,9 +28,10 @@ library(ggplot2)
 library(leaflet.extras)
 library(flexdashboard)
 library(shinydashboard)
-
 ```
-```{r datos}
+
+
+```{r datos, include=FALSE}
 # Capa de polígonos: afectaciones en proyectos
 afectaciones <-
   st_read(
